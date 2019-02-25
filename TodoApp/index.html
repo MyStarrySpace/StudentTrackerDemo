@@ -20,15 +20,13 @@
     </p>
 
     <h3>To-do list:</h3>
-    <ul>
-        <li>Thing 1</li>
-        <li>Thing 2</li>
+    <ul id="list">
     </ul>
 
-    <form>
+    <form id="addItem">
         <div>Add a new item to the to-do list:</div>
         <input type="text" name="newItem">
-        <input type="submit" value="Add Item">
+        <input type="submit" value="Add Item" onSubmit="addItemToList()">
     </form>
   </body>
 

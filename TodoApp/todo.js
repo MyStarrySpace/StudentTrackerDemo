@@ -4,6 +4,9 @@ function addItemToList() {
       alert("You forgot to type an item in!");
     }
     else{
-
+        var enode = document.createElement("li");
+        var tnode = document.createTextNode(item);
+        enode.appendChild(tnode); 
+        document.getElementById("list").appendChild(enode);
     }
   }

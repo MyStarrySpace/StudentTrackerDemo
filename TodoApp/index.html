@@ -6,11 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <!-- import the webpage's stylesheet -->
-    <link rel="stylesheet" href="/style.css">
-    
     <!-- import the webpage's javascript file -->
-    <script src="/todo.js" defer></script>
+    <script src="todo.js" defer></script>
   </head>  
   <body>
     <h1>Hi there!</h1>
@@ -23,10 +20,10 @@
     <ul id="list">
     </ul>
 
-    <form id="addItem">
+    <form id="addItem" onSubmit="addItemToList()">
         <div>Add a new item to the to-do list:</div>
         <input type="text" name="newItem">
-        <input type="submit" value="Add Item" onSubmit="addItemToList()">
+        <input type="submit" value="Add Item">
     </form>
   </body>
 

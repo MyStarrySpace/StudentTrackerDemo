@@ -6,7 +6,7 @@ const state = [
 // This grabs the DOM element to be used to mount React components.
 var contentNode = document.getElementById("contents");
 
-class MyComponent extends React.Component {
+class Dashboard extends React.Component {
   constructor() {
     super();
   }
@@ -14,11 +14,33 @@ class MyComponent extends React.Component {
   render() {
     return (
       <div>
-        <h1>My View 01</h1>
+        <h1>Dashboard</h1>
+        <Profile />
+        <Classes />
+      </div>
+    );
+  }
+}
+
+class Profile extends React.Component {
+  render() {
+    return (
+      <div>
+        <h3>This is a placeholder for the profile component.</h3>
+      </div>
+    );
+  }
+}
+
+class Classes extends React.Component {
+  render() {
+    return (
+      <div>
+        <h3>This is a placeholder for the classes component.</h3>
       </div>
     );
   }
 }
 
 // This renders the JSX component inside the content node:
-ReactDOM.render(<MyComponent />, contentNode);
+ReactDOM.render(<Dashboard />, contentNode);

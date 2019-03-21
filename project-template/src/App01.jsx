@@ -26,7 +26,7 @@ class Profile extends React.Component {
   render() {
     return (
       <div>
-        <h3>This is a placeholder for the profile component.</h3>
+        <h3>My Profile</h3>
       </div>
     );
   }
@@ -36,8 +36,29 @@ class Classes extends React.Component {
   render() {
     return (
       <div>
-        <h3>This is a placeholder for the classes component.</h3>
+        <h3>Classes I am taking:</h3>
+        <table>
+        	<thead>
+        		<th>Course ID</th>
+        		<th>Course Name</th>
+        	</thead>
+        	<tbody>
+        		<ClassRow course_id="COMPSCI 373" course_title="Intro to Computer Graphics"/>
+        		<ClassRow course_id="COMPSCI 326" course_title="Intro to Web Programming"/>
+        	</tbody>
+        </table>
       </div>
+    );
+  }
+}
+
+class ClassRow extends React.Component {
+  render() {
+    return (
+      <tr>
+      	<td>{this.props.course_id}</td>
+      	<td>{this.props.course_title}</td>
+      </tr>
     );
   }
 }

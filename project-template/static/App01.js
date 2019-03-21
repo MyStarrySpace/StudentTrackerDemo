@@ -34,7 +34,8 @@ var Dashboard = function (_React$Component) {
           null,
           "Dashboard"
         ),
-        React.createElement(Profile, null)
+        React.createElement(Profile, null),
+        React.createElement(Classes, null)
       );
     }
   }]);
@@ -67,6 +68,89 @@ var Profile = function (_React$Component2) {
   }]);
 
   return Profile;
+}(React.Component);
+
+var Classes = function (_React$Component3) {
+  _inherits(Classes, _React$Component3);
+
+  function Classes() {
+    _classCallCheck(this, Classes);
+
+    return _possibleConstructorReturn(this, (Classes.__proto__ || Object.getPrototypeOf(Classes)).apply(this, arguments));
+  }
+
+  _createClass(Classes, [{
+    key: "render",
+    value: function render() {
+      return React.createElement(
+        "div",
+        null,
+        React.createElement(
+          "h3",
+          null,
+          "Classes I am taking:"
+        ),
+        React.createElement(
+          "table",
+          null,
+          React.createElement(
+            "thead",
+            null,
+            React.createElement(
+              "th",
+              null,
+              "Course ID"
+            ),
+            React.createElement(
+              "th",
+              null,
+              "Course Name"
+            )
+          ),
+          React.createElement(
+            "tbody",
+            null,
+            React.createElement(ClassRow, { course_id: "COMPSCI 373", course_title: "Intro to Computer Graphics" }),
+            React.createElement(ClassRow, { course_id: "COMPSCI 326", course_title: "Intro to Web Programming" })
+          )
+        )
+      );
+    }
+  }]);
+
+  return Classes;
+}(React.Component);
+
+var ClassRow = function (_React$Component4) {
+  _inherits(ClassRow, _React$Component4);
+
+  function ClassRow() {
+    _classCallCheck(this, ClassRow);
+
+    return _possibleConstructorReturn(this, (ClassRow.__proto__ || Object.getPrototypeOf(ClassRow)).apply(this, arguments));
+  }
+
+  _createClass(ClassRow, [{
+    key: "render",
+    value: function render() {
+      return React.createElement(
+        "tr",
+        null,
+        React.createElement(
+          "td",
+          null,
+          this.props.course_id
+        ),
+        React.createElement(
+          "td",
+          null,
+          this.props.course_title
+        )
+      );
+    }
+  }]);
+
+  return ClassRow;
 }(React.Component);
 
 // This renders the JSX component inside the content node:

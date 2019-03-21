@@ -16,7 +16,7 @@ class Dashboard extends React.Component {
       <div>
         <h1>Dashboard</h1>
         <Profile name="Student McLearner" bio="I love Computer Science and am a huge fan of Tim Richards. I hope he gives me an A for this project"/>
-        <Classes />
+        <Courses />
       </div>
     );
   }
@@ -34,19 +34,19 @@ class Profile extends React.Component {
   }
 }
 
-class Classes extends React.Component {
+class Courses extends React.Component {
   render() {
     return (
       <div>
-        <h3>Classes I am taking:</h3>
+        <h3>Courses I am taking:</h3>
         <table>
         	<thead>
         		<th>Course ID</th>
         		<th>Course Name</th>
         	</thead>
         	<tbody>
-        		<ClassRow course_id="COMPSCI 373" course_title="Intro to Computer Graphics"/>
-        		<ClassRow course_id="COMPSCI 326" course_title="Intro to Web Programming"/>
+        		<CourseRow course_id="COMPSCI 373" course_title="Intro to Computer Graphics"/>
+        		<CourseRow course_id="COMPSCI 326" course_title="Intro to Web Programming"/>
         	</tbody>
         </table>
       </div>
@@ -54,7 +54,7 @@ class Classes extends React.Component {
   }
 }
 
-class ClassRow extends React.Component {
+class CourseRow extends React.Component {
   render() {
     return (
       <tr>

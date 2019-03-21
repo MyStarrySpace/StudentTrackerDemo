@@ -14,16 +14,16 @@ var state = [];
 // This grabs the DOM element to be used to mount React components.
 var contentNode = document.getElementById("contents");
 
-var MyComponent = function (_React$Component) {
-  _inherits(MyComponent, _React$Component);
+var Profile = function (_React$Component) {
+  _inherits(Profile, _React$Component);
 
-  function MyComponent() {
-    _classCallCheck(this, MyComponent);
+  function Profile() {
+    _classCallCheck(this, Profile);
 
-    return _possibleConstructorReturn(this, (MyComponent.__proto__ || Object.getPrototypeOf(MyComponent)).call(this));
+    return _possibleConstructorReturn(this, (Profile.__proto__ || Object.getPrototypeOf(Profile)).call(this));
   }
 
-  _createClass(MyComponent, [{
+  _createClass(Profile, [{
     key: "render",
     value: function render() {
       return React.createElement(
@@ -32,16 +32,97 @@ var MyComponent = function (_React$Component) {
         React.createElement(
           "h1",
           null,
-          "My View 02"
+          "My Profile"
+        ),
+        React.createElement(Edit, null),
+        React.createElement(Name, { name: "Student Mclearner" }),
+        React.createElement(Bio, { bio_text: "I love Computer Science and am a huge fan of Tim Richards. I hope he gives me an A for this project" })
+      );
+    }
+  }]);
+
+  return Profile;
+}(React.Component);
+
+var Edit = function (_React$Component2) {
+  _inherits(Edit, _React$Component2);
+
+  function Edit() {
+    _classCallCheck(this, Edit);
+
+    return _possibleConstructorReturn(this, (Edit.__proto__ || Object.getPrototypeOf(Edit)).apply(this, arguments));
+  }
+
+  _createClass(Edit, [{
+    key: "render",
+    value: function render() {
+      return React.createElement(
+        "div",
+        null,
+        React.createElement(
+          "button",
+          null,
+          "Edit my profile"
         )
       );
     }
   }]);
 
-  return MyComponent;
+  return Edit;
+}(React.Component);
+
+var Name = function (_React$Component3) {
+  _inherits(Name, _React$Component3);
+
+  function Name() {
+    _classCallCheck(this, Name);
+
+    return _possibleConstructorReturn(this, (Name.__proto__ || Object.getPrototypeOf(Name)).apply(this, arguments));
+  }
+
+  _createClass(Name, [{
+    key: "render",
+    value: function render() {
+      return React.createElement(
+        "h4",
+        null,
+        this.props.name
+      );
+    }
+  }]);
+
+  return Name;
+}(React.Component);
+
+var Bio = function (_React$Component4) {
+  _inherits(Bio, _React$Component4);
+
+  function Bio() {
+    _classCallCheck(this, Bio);
+
+    return _possibleConstructorReturn(this, (Bio.__proto__ || Object.getPrototypeOf(Bio)).apply(this, arguments));
+  }
+
+  _createClass(Bio, [{
+    key: "render",
+    value: function render() {
+      return React.createElement(
+        "div",
+        null,
+        React.createElement(
+          "h4",
+          null,
+          "My Bio"
+        ),
+        this.props.bio_text
+      );
+    }
+  }]);
+
+  return Bio;
 }(React.Component);
 
 // This renders the JSX component inside the content node:
 
 
-ReactDOM.render(React.createElement(MyComponent, null), contentNode);
+ReactDOM.render(React.createElement(Profile, null), contentNode);

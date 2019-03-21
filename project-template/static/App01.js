@@ -34,7 +34,7 @@ var Dashboard = function (_React$Component) {
           null,
           "Dashboard"
         ),
-        React.createElement(Profile, null),
+        React.createElement(Profile, { name: "Student McLearner", bio: "I love Computer Science and am a huge fan of Tim Richards. I hope he gives me an A for this project" }),
         React.createElement(Classes, null)
       );
     }
@@ -61,7 +61,17 @@ var Profile = function (_React$Component2) {
         React.createElement(
           "h3",
           null,
-          "This is a placeholder for the profile component."
+          "My Profile"
+        ),
+        React.createElement(
+          "h4",
+          null,
+          this.props.name
+        ),
+        React.createElement(
+          "p",
+          null,
+          this.props.bio
         )
       );
     }

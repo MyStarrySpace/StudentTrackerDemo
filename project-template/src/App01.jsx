@@ -15,7 +15,7 @@ class Dashboard extends React.Component {
     return (
       <div>
         <h1>Dashboard</h1>
-        <Profile />
+        <Profile name="Student McLearner" bio="I love Computer Science and am a huge fan of Tim Richards. I hope he gives me an A for this project"/>
         <Classes />
       </div>
     );
@@ -27,6 +27,8 @@ class Profile extends React.Component {
     return (
       <div>
         <h3>My Profile</h3>
+        <h4>{this.props.name}</h4>
+        <p>{this.props.bio}</p>
       </div>
     );
   }

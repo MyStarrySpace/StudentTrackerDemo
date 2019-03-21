@@ -27,7 +27,7 @@ class Edit extends React.Component {
   render() {
     return (
       <div>
-        <h3>My Profile</h3>
+      <button>Edit my profile</button>
       </div>
     );
   }
@@ -44,11 +44,13 @@ class Name extends React.Component {
 class Bio extends React.Component {
   render() {
     return (
+      <div>
       <h4>My Bio</h4>
-      <div>{this.props.bio_text}}</div>
+      {this.props.bio_text}
+      </div>
     );
   }
 }
 
 // This renders the JSX component inside the content node:
-ReactDOM.render(<MyComponent />, contentNode);
+ReactDOM.render(<Profile />, contentNode);

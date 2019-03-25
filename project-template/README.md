@@ -1,14 +1,13 @@
 # Application Name
 
-Rename the above with the name of your application.
+Study Buddies
 
 # Overview
-
-Add an overview of your application here.
+The purpose of the application is to allow students who need help with a class to meet other people in the same class. They will use the app by selecting which class they need help with and chatting through a chat feature to plan when they want to meet. The primary users of this application are college students. 
 
 # Team Members
 
-Add the team member names who are working on this application.
+Sameeiya Saffiullah, Gargi Sapre, Shirley Xu, Maggie Zhang
 
 # Application Initialization
 

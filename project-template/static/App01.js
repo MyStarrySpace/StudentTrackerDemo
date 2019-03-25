@@ -35,7 +35,7 @@ var Dashboard = function (_React$Component) {
           "Dashboard"
         ),
         React.createElement(Profile, { name: "Student McLearner", bio: "I love Computer Science and am a huge fan of Tim Richards. I hope he gives me an A for this project" }),
-        React.createElement(Classes, null)
+        React.createElement(Courses, null)
       );
     }
   }]);
@@ -80,16 +80,16 @@ var Profile = function (_React$Component2) {
   return Profile;
 }(React.Component);
 
-var Classes = function (_React$Component3) {
-  _inherits(Classes, _React$Component3);
+var Courses = function (_React$Component3) {
+  _inherits(Courses, _React$Component3);
 
-  function Classes() {
-    _classCallCheck(this, Classes);
+  function Courses() {
+    _classCallCheck(this, Courses);
 
-    return _possibleConstructorReturn(this, (Classes.__proto__ || Object.getPrototypeOf(Classes)).apply(this, arguments));
+    return _possibleConstructorReturn(this, (Courses.__proto__ || Object.getPrototypeOf(Courses)).apply(this, arguments));
   }
 
-  _createClass(Classes, [{
+  _createClass(Courses, [{
     key: "render",
     value: function render() {
       return React.createElement(
@@ -98,7 +98,7 @@ var Classes = function (_React$Component3) {
         React.createElement(
           "h3",
           null,
-          "Classes I am taking:"
+          "Courses I am taking:"
         ),
         React.createElement(
           "table",
@@ -120,27 +120,27 @@ var Classes = function (_React$Component3) {
           React.createElement(
             "tbody",
             null,
-            React.createElement(ClassRow, { course_id: "COMPSCI 373", course_title: "Intro to Computer Graphics" }),
-            React.createElement(ClassRow, { course_id: "COMPSCI 326", course_title: "Intro to Web Programming" })
+            React.createElement(CourseRow, { course_id: "COMPSCI 373", course_title: "Intro to Computer Graphics" }),
+            React.createElement(CourseRow, { course_id: "COMPSCI 326", course_title: "Intro to Web Programming" })
           )
         )
       );
     }
   }]);
 
-  return Classes;
+  return Courses;
 }(React.Component);
 
-var ClassRow = function (_React$Component4) {
-  _inherits(ClassRow, _React$Component4);
+var CourseRow = function (_React$Component4) {
+  _inherits(CourseRow, _React$Component4);
 
-  function ClassRow() {
-    _classCallCheck(this, ClassRow);
+  function CourseRow() {
+    _classCallCheck(this, CourseRow);
 
-    return _possibleConstructorReturn(this, (ClassRow.__proto__ || Object.getPrototypeOf(ClassRow)).apply(this, arguments));
+    return _possibleConstructorReturn(this, (CourseRow.__proto__ || Object.getPrototypeOf(CourseRow)).apply(this, arguments));
   }
 
-  _createClass(ClassRow, [{
+  _createClass(CourseRow, [{
     key: "render",
     value: function render() {
       return React.createElement(
@@ -160,7 +160,7 @@ var ClassRow = function (_React$Component4) {
     }
   }]);
 
-  return ClassRow;
+  return CourseRow;
 }(React.Component);
 
 // This renders the JSX component inside the content node:

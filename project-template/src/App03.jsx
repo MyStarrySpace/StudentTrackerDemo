@@ -7,21 +7,10 @@ const state = [
 var contentNode = document.getElementById("contents");
 
 class Courses extends React.Component {
-  constructor() {
-    super();
-  }
+    constructor() {
+        super();
+      }
 
-  render() {
-    return (
-      <div>
-        <h1>Courses</h1>
-      </div>
-      <Courses />
-    );
-  }
-}
-
-class Courses extends React.Component {
   render() {
     return (
       <div>

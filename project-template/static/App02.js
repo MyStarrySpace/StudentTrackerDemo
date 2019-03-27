@@ -50,10 +50,28 @@ var Edit = function (_React$Component2) {
   function Edit() {
     _classCallCheck(this, Edit);
 
-    return _possibleConstructorReturn(this, (Edit.__proto__ || Object.getPrototypeOf(Edit)).apply(this, arguments));
+    var _this2 = _possibleConstructorReturn(this, (Edit.__proto__ || Object.getPrototypeOf(Edit)).call(this));
+
+    _this2.state = { isToggleOn: true };
+    _this2.handleClick = _this2.handleClick.bind(_this2);
+    return _this2;
   }
 
   _createClass(Edit, [{
+    key: "handleClick",
+    value: function handleClick() {
+      this.setState(function (state) {
+        return {
+          isToggleOn: !state.isToggleOn
+        };
+      });
+    }
+  }, {
+    key: "handleChange",
+    value: function handleChange() {
+      this.setState({ name: event.target.value });
+    }
+  }, {
     key: "render",
     value: function render() {
       return React.createElement(
@@ -61,8 +79,8 @@ var Edit = function (_React$Component2) {
         null,
         React.createElement(
           "button",
-          null,
-          "Edit my profile"
+          { onClick: this.handleClick },
+          this.state.isToggleOn ? 'Edit my Profile' : 'Okay'
         )
       );
     }

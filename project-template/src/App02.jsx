@@ -24,10 +24,27 @@ class Profile extends React.Component {
 }
 
 class Edit extends React.Component {
+  constructor(){
+    super();
+    this.state = {isToggleOn: true};
+    this.handleClick = this.handleClick.bind(this);
+  }
+    handleClick(){
+      this.setState(state => ({
+        isToggleOn: !state.isToggleOn
+      }));
+    }
+
+    handleChange(){
+      this.setState({name: event.target.value});
+    };
+
   render() {
     return (
       <div>
-      <button>Edit my profile</button>
+      <button onClick={this.handleClick}> 
+      {this.state.isToggleOn ? 'Edit my Profile' : 'Okay'}
+      </button>
       </div>
     );
   }

@@ -14,90 +14,181 @@ var state = [];
 // This grabs the DOM element to be used to mount React components.
 var contentNode = document.getElementById("contents");
 
-var Courses = function (_React$Component) {
-  _inherits(Courses, _React$Component);
+var CourseTable = function (_React$Component) {
+    _inherits(CourseTable, _React$Component);
+  
+    function CourseTable() {
+      _classCallCheck(this, CourseTable);
+  
+      return _possibleConstructorReturn(this, (CourseTable.__proto__ || Object.getPrototypeOf(CourseTable)).apply(this, arguments));
+    }
+  
+    _createClass(CourseTable, [{
+      key: "render",
+      value: function render() {
+        return React.createElement(
+          "div",
+          null,
+          React.createElement(
+            "textarea",
+            null,
+            "Enter your Course Name and Review Here"
+          )
+        );
+      }
+    }]);
+  
+    return CourseTable;
+  }(React.Component);
 
-  function Courses() {
-    _classCallCheck(this, Courses);
 
-    return _possibleConstructorReturn(this, (Courses.__proto__ || Object.getPrototypeOf(Courses)).call(this));
+  var addButton = function (_React$Component2) {
+    _inherits(addButton, _React$Component2);
+  
+    function addButton() {
+      _classCallCheck(this, addButton);
+  
+      return _possibleConstructorReturn(this, (addButton.__proto__ || Object.getPrototypeOf(addButton)).apply(this, arguments));
+    }
+  
+    _createClass(addButton, [{
+      key: "render",
+      value: function render() {
+        return React.createElement(
+          "div",
+          null,
+          React.createElement(
+            "button",
+            null,
+            "ADD"
+          )
+        );
+      }
+    }]);
+  
+    return addButton;
+  }(React.Component);
+
+
+  var CourseRow = function (_React$Component3) {
+    _inherits(CourseRow, _React$Component3);
+  
+    function CourseRow() {
+      _classCallCheck(this, CourseRow);
+  
+      return _possibleConstructorReturn(this, (CourseRow.__proto__ || Object.getPrototypeOf(CourseRow)).apply(this, arguments));
+    }
+  
+    _createClass(CourseRow, [{
+      key: "render",
+      value: function render() {
+        return React.createElement(
+          "tr",
+          null,
+          React.createElement(
+            "td",
+            null,
+            this.props.course_id
+          ),
+          React.createElement(
+            "td",
+            null,
+            this.props.course_title
+          )
+        );
+      }
+    }]);
+  
+    return CourseRow;
+  }(React.Component);
+
+
+
+
+  var Courses = function (_React$Component4) {
+    _inherits(Courses, _React$Component4);
+  
+    function Courses() {
+      _classCallCheck(this, Courses);
+  
+      return _possibleConstructorReturn(this, (Courses.__proto__ || Object.getPrototypeOf(Courses)).apply(this, arguments));
+    }
+  
+    _createClass(Courses, [{
+      key: "render",
+      value: function render() {
+        return React.createElement(
+          "div",
+          null,
+          React.createElement(
+            "h3",
+            null,
+            "Courses I am taking:"
+          ),
+          React.createElement(
+            "table",
+            null,
+            React.createElement(
+              "thead",
+              null,
+              React.createElement(
+                "th",
+                null,
+                "Course ID"
+              ),
+              React.createElement(
+                "th",
+                null,
+                "Course Review"
+              )
+            ),
+            React.createElement(
+              "tbody",
+              null,
+              React.createElement(CourseRow, { course_id: "COMPSCI 373", course_title: "xyz" }),
+              React.createElement(CourseRow, { course_id: "COMPSCI 326", course_title: "xyz" })
+            )
+          )
+        );
+      }
+    }]);
+  
+    return Courses;
+  }(React.Component);
+
+  
+
+var AddCourses = function (_React$Component5) {
+  _inherits(AddCourses, _React$Component5);
+
+  function AddCourses() {
+    _classCallCheck(this, AddCourses);
+
+    return _possibleConstructorReturn(this, (AddCourses.__proto__ || Object.getPrototypeOf(AddCourses)).call(this));
   }
 
-  _createClass(Courses, [{
+  _createClass(AddCourses, [{
     key: "render",
     value: function render() {
       return React.createElement(
         "div",
         null,
         React.createElement(
-          "h3",
+          "h1",
           null,
-          "Courses I am taking:"
+          "AddCourses"
         ),
-        React.createElement(
-          "table",
-          null,
-          React.createElement(
-            "thead",
-            null,
-            React.createElement(
-              "th",
-              null,
-              "Course ID"
-            ),
-            React.createElement(
-              "th",
-              null,
-              "Course Name"
-            )
-          ),
-          React.createElement(
-            "tbody",
-            null,
-            React.createElement(CourseRow, { course_id: "COMPSCI 373", course_title: "Intro to Computer Graphics" }),
-            React.createElement(CourseRow, { course_id: "COMPSCI 326", course_title: "Intro to Web Programming" })
-          )
-        )
+        React.createElement(CourseTable, null),
+        React.createElement(addButton, null),
+        React.createElement(Courses, null)
+        
       );
     }
   }]);
 
-  return Courses;
+  return AddCourses;
 }(React.Component);
 
-var CourseRow = function (_React$Component2) {
-  _inherits(CourseRow, _React$Component2);
-
-  function CourseRow() {
-    _classCallCheck(this, CourseRow);
-
-    return _possibleConstructorReturn(this, (CourseRow.__proto__ || Object.getPrototypeOf(CourseRow)).apply(this, arguments));
-  }
-
-  _createClass(CourseRow, [{
-    key: "render",
-    value: function render() {
-      return React.createElement(
-        "tr",
-        null,
-        React.createElement(
-          "td",
-          null,
-          this.props.course_id
-        ),
-        React.createElement(
-          "td",
-          null,
-          this.props.course_title
-        )
-      );
-    }
-  }]);
-
-  return CourseRow;
-}(React.Component);
-
-// This renders the JSX component inside the content node:
 
 
-ReactDOM.render(React.createElement(Courses, null), contentNode);
+ReactDOM.render(React.createElement(AddCourses, null), contentNode);

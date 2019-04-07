@@ -4,12 +4,12 @@ db = new Mongo().getDB('studyBuddy');
 
 // Next, we remove everything inside it. This is helpful to ensure that the
 // database starts from a known state.
-db.issues.remove({});
+db.students.remove({});
 
 // Now, we insert some mock data that mirrors the data that we have in the
 // in-memory version of the server.js code.
 
-// db.issues.insert([
+// db.students.insert([
 //   {
 //     status: 'Open', owner: 'Ravan',
 //     created: new Date('2016-08-15'), effort: 5, completionDate: undefined,
@@ -20,7 +20,7 @@ db.issues.remove({});
 //     title: 'Missing bottom border on panel',
 //   },]);
 
-db.issues.insert([
+db.students.insert([
   {
     name: 'Student McLearner',
     bio: 'I love Computer Science and am a huge fan of Tim Richards. I hope he gives me an A for this project',
@@ -38,6 +38,6 @@ db.issues.insert([
 // Lastly, we create "indexes" to make searching faster. For this particular
 // application we know that searching on the status, owner, and created properties
 // will be common, so we create indexes on those.
-db.issues.createIndex({ name: 1 });
-db.issues.createIndex({ bio: 1 });
-db.issues.createIndex({ courses: 1 });
+db.students.createIndex({ name: 1 });
+db.students.createIndex({ bio: 1 });
+db.students.createIndex({ courses: 1 });

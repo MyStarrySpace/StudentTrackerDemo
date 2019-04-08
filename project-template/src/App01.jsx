@@ -1,69 +1,58 @@
-// This is a place holder for the initial application state.
-const state = [
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Router, Route, hashHistory, withRouter, IndexRoute, Link } from 'react-router';
 
-];
+import StudentList from './StudentList.jsx';
+import StudentEdit from './StudentEdit.jsx';
+import Login from './Login.jsx';
 
-// This grabs the DOM element to be used to mount React components.
 var contentNode = document.getElementById("contents");
 
-class Dashboard extends React.Component {
-  constructor() {
-    super();
-  }
+// A simple component to indicate that a page was not found.
+const NoMatch = () => <p>Page Not Found</p>;
 
-  render() {
-    return (
-      <div>
-        <h1>Dashboard</h1>
-        <Profile name="Student McLearner" bio="I love Computer Science and am a huge fan of Tim Richards. I hope he gives me an A for this project"/>
-        <Courses />
-      </div>
-    );
-  }
-}
+// This defines the main application layout that can be used
+// across nested routes. The `props.children` property is received
+// by the parent route. See the route definitions below.
+const App = (props) => (
+  <div>
+    <div className="header">
+      <h1>Study Buddies</h1>
+      <p><Link to="/">Logout</Link></p>
+    </div>
+    <div className="contents">
+      {props.children}
+    </div>
+    <div className="footer">
+      COMPSCI 326
+    </div>
+  </div >
+);
 
-class Profile extends React.Component {
-  render() {
-    return (
-      <div>
-        <h3>My Profile</h3>
-        <h4>{this.props.name}</h4>
-        <p>{this.props.bio}</p>
-      </div>
-    );
-  }
-}
+// For safety, we specify that the prop types received by the
+// App component must require a "children" property. If we do
+// not include this it will not compile.
+App.propTypes = {
+  children: React.PropTypes.object.isRequired,
+};
 
-class Courses extends React.Component {
-  render() {
-    return (
-      <div>
-        <h3>Courses I am taking:</h3>
-        <table>
-        	<thead>
-        		<th>Course ID</th>
-        		<th>Course Name</th>
-        	</thead>
-        	<tbody>
-        		<CourseRow course_id="COMPSCI 373" course_title="Intro to Computer Graphics"/>
-        		<CourseRow course_id="COMPSCI 326" course_title="Intro to Web Programming"/>
-        	</tbody>
-        </table>
-      </div>
-    );
-  }
-}
+// The "routed app" that defines the different routes that
+// are supposed in this application. As you can see, If the
+// URL path is '/' we will render the IssueList component,
+// if the path is '/issues/:id' we render the IssueEdit component,
+// and if we get anything else we render the NoMatch view.
+// This router uses the "hash history" approach to implement
+// single-page apps with multiple views.
+const RoutedApp = () => (
+  <Router history={hashHistory} >
+    {/* <Redirect from="/" to="/issues" /> - replaced this with the Dashboard component */}
+    <Route path="/" component={App} >
+      <IndexRoute component={Login} />
+      <Route path="/students" component={withRouter(StudentList)} />
+      <Route path="/students:id" component={StudentEdit} />
+      <Route path="*" component={NoMatch} />
+    </Route>
+  </Router>);
 
-class CourseRow extends React.Component {
-  render() {
-    return (
-      <tr>
-      	<td>{this.props.course_id}</td>
-      	<td>{this.props.course_title}</td>
-      </tr>
-    );
-  }
-}
-
-// This renders the JSX component inside the content node:
-ReactDOM.render(<Dashboard />, contentNode);
+// This renders the JSX router inside the content node:
+ReactDOM.render(<RoutedApp />, contentNode);

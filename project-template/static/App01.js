@@ -1,169 +1,106 @@
-"use strict";
+'use strict';
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _react = require('react');
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+var _react2 = _interopRequireDefault(_react);
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+var _reactDom = require('react-dom');
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+var _reactDom2 = _interopRequireDefault(_reactDom);
 
-// This is a place holder for the initial application state.
-var state = [];
+var _reactRouter = require('react-router');
 
-// This grabs the DOM element to be used to mount React components.
+var _StudentList = require('./StudentList.jsx');
+
+var _StudentList2 = _interopRequireDefault(_StudentList);
+
+var _StudentEdit = require('./StudentEdit.jsx');
+
+var _StudentEdit2 = _interopRequireDefault(_StudentEdit);
+
+var _Login = require('./Login.jsx');
+
+var _Login2 = _interopRequireDefault(_Login);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var contentNode = document.getElementById("contents");
 
-var Dashboard = function (_React$Component) {
-  _inherits(Dashboard, _React$Component);
+// A simple component to indicate that a page was not found.
+var NoMatch = function NoMatch() {
+  return _react2.default.createElement(
+    'p',
+    null,
+    'Page Not Found'
+  );
+};
 
-  function Dashboard() {
-    _classCallCheck(this, Dashboard);
-
-    return _possibleConstructorReturn(this, (Dashboard.__proto__ || Object.getPrototypeOf(Dashboard)).call(this));
-  }
-
-  _createClass(Dashboard, [{
-    key: "render",
-    value: function render() {
-      return React.createElement(
-        "div",
+// This defines the main application layout that can be used
+// across nested routes. The `props.children` property is received
+// by the parent route. See the route definitions below.
+var App = function App(props) {
+  return _react2.default.createElement(
+    'div',
+    null,
+    _react2.default.createElement(
+      'div',
+      { className: 'header' },
+      _react2.default.createElement(
+        'h1',
         null,
-        React.createElement(
-          "h1",
-          null,
-          "Dashboard"
-        ),
-        React.createElement(Profile, { name: "Student McLearner", bio: "I love Computer Science and am a huge fan of Tim Richards. I hope he gives me an A for this project" }),
-        React.createElement(Courses, null)
-      );
-    }
-  }]);
-
-  return Dashboard;
-}(React.Component);
-
-var Profile = function (_React$Component2) {
-  _inherits(Profile, _React$Component2);
-
-  function Profile() {
-    _classCallCheck(this, Profile);
-
-    return _possibleConstructorReturn(this, (Profile.__proto__ || Object.getPrototypeOf(Profile)).apply(this, arguments));
-  }
-
-  _createClass(Profile, [{
-    key: "render",
-    value: function render() {
-      return React.createElement(
-        "div",
+        'Study Buddies'
+      ),
+      _react2.default.createElement(
+        'p',
         null,
-        React.createElement(
-          "h3",
-          null,
-          "My Profile"
-        ),
-        React.createElement(
-          "h4",
-          null,
-          this.props.name
-        ),
-        React.createElement(
-          "p",
-          null,
-          this.props.bio
+        _react2.default.createElement(
+          _reactRouter.Link,
+          { to: '/' },
+          'Logout'
         )
-      );
-    }
-  }]);
+      )
+    ),
+    _react2.default.createElement(
+      'div',
+      { className: 'contents' },
+      props.children
+    ),
+    _react2.default.createElement(
+      'div',
+      { className: 'footer' },
+      'COMPSCI 326'
+    )
+  );
+};
 
-  return Profile;
-}(React.Component);
+// For safety, we specify that the prop types received by the
+// App component must require a "children" property. If we do
+// not include this it will not compile.
+App.propTypes = {
+  children: _react2.default.PropTypes.object.isRequired
+};
 
-var Courses = function (_React$Component3) {
-  _inherits(Courses, _React$Component3);
+// The "routed app" that defines the different routes that
+// are supposed in this application. As you can see, If the
+// URL path is '/' we will render the IssueList component,
+// if the path is '/issues/:id' we render the IssueEdit component,
+// and if we get anything else we render the NoMatch view.
+// This router uses the "hash history" approach to implement
+// single-page apps with multiple views.
+var RoutedApp = function RoutedApp() {
+  return _react2.default.createElement(
+    _reactRouter.Router,
+    { history: _reactRouter.hashHistory },
+    _react2.default.createElement(
+      _reactRouter.Route,
+      { path: '/', component: App },
+      _react2.default.createElement(_reactRouter.IndexRoute, { component: _Login2.default }),
+      _react2.default.createElement(_reactRouter.Route, { path: '/students', component: (0, _reactRouter.withRouter)(_StudentList2.default) }),
+      _react2.default.createElement(_reactRouter.Route, { path: '/students:id', component: _StudentEdit2.default }),
+      _react2.default.createElement(_reactRouter.Route, { path: '*', component: NoMatch })
+    )
+  );
+};
 
-  function Courses() {
-    _classCallCheck(this, Courses);
-
-    return _possibleConstructorReturn(this, (Courses.__proto__ || Object.getPrototypeOf(Courses)).apply(this, arguments));
-  }
-
-  _createClass(Courses, [{
-    key: "render",
-    value: function render() {
-      return React.createElement(
-        "div",
-        null,
-        React.createElement(
-          "h3",
-          null,
-          "Courses I am taking:"
-        ),
-        React.createElement(
-          "table",
-          null,
-          React.createElement(
-            "thead",
-            null,
-            React.createElement(
-              "th",
-              null,
-              "Course ID"
-            ),
-            React.createElement(
-              "th",
-              null,
-              "Course Name"
-            )
-          ),
-          React.createElement(
-            "tbody",
-            null,
-            React.createElement(CourseRow, { course_id: "COMPSCI 373", course_title: "Intro to Computer Graphics" }),
-            React.createElement(CourseRow, { course_id: "COMPSCI 326", course_title: "Intro to Web Programming" })
-          )
-        )
-      );
-    }
-  }]);
-
-  return Courses;
-}(React.Component);
-
-var CourseRow = function (_React$Component4) {
-  _inherits(CourseRow, _React$Component4);
-
-  function CourseRow() {
-    _classCallCheck(this, CourseRow);
-
-    return _possibleConstructorReturn(this, (CourseRow.__proto__ || Object.getPrototypeOf(CourseRow)).apply(this, arguments));
-  }
-
-  _createClass(CourseRow, [{
-    key: "render",
-    value: function render() {
-      return React.createElement(
-        "tr",
-        null,
-        React.createElement(
-          "td",
-          null,
-          this.props.course_id
-        ),
-        React.createElement(
-          "td",
-          null,
-          this.props.course_title
-        )
-      );
-    }
-  }]);
-
-  return CourseRow;
-}(React.Component);
-
-// This renders the JSX component inside the content node:
-
-
-ReactDOM.render(React.createElement(Dashboard, null), contentNode);
+// This renders the JSX router inside the content node:
+_reactDom2.default.render(_react2.default.createElement(RoutedApp, null), contentNode);

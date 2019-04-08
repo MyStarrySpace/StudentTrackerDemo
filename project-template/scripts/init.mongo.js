@@ -23,6 +23,7 @@ db.students.remove({});
 db.students.insert([
   {
     name: 'Student McLearner',
+    major: 'Computer Science',
     bio: 'I love Computer Science and am a huge fan of Tim Richards. I hope he gives me an A for this project',
     courses: [
       {

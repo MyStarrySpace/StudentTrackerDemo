@@ -3,15 +3,59 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>Mock Views</title>
+    <title>Study Buddies</title>
+    <style>
+        table.bordered-table th,
+        td {
+            border: 1px solid silver;
+            padding: 4px;
+        }
+
+        table.bordered-table {
+            border-collapse: collapse
+        }
+
+        .header {
+            border-bottom: 1px solid silver;
+            margin-bottom: 20px;
+        }
+
+        .footer {
+            border-top: 1px solid silver;
+            padding-top: 5px;
+            margin-top: 20px;
+            font-family: Helvetica;
+            font-size: 10px;
+            color: grey;
+        }
+
+        a:link {
+            color: green;
+        }
+
+        /* visited link */
+        a:visited {
+            color: green;
+        }
+
+        /* mouse over link */
+        a:hover {
+            color: red;
+        }
+
+        /* selected link */
+        a:active {
+            color: yellow;
+        }
+    </style>
 </head>
 
 <body>
-    <ul>
-        <li><a href="/view01.html">View 01</a></li>
-        <li><a href="/view02.html">View 02</a></li>
-        <li><a href="/view03.html">View 03</a></li>
-    </ul>
+    <!-- this is where our component will appear -->
+    <div id="contents"></div>
+    <!-- NEW: We add the vendor compiled JS code here. -->
+    <script src="static/vendor.bundle.js"></script>
+    <script src="static/app.bundle.js"></script>
 </body>
 
 </html>

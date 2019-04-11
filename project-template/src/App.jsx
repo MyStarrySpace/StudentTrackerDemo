@@ -45,7 +45,7 @@ App.propTypes = {
 // single-page apps with multiple views.
 const RoutedApp = () => (
   <Router history={hashHistory} >
-    {/* <Redirect from="/" to="/issues" /> - replaced this with the Dashboard component */}
+    {/* <Redirect from="/" to="/issues" /> - replaced this with the Login component */}
     <Route path="/" component={App} >
       <IndexRoute component={Login} />
       <Route path="/students" component={withRouter(StudentList)} />

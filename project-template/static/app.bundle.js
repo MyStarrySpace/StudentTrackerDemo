@@ -10,11 +10,11 @@ var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(47);
+var _reactDom = __webpack_require__(76);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _reactRouter = __webpack_require__(21);
+var _reactRouter = __webpack_require__(27);
 
 var _StudentList = __webpack_require__(251);
 
@@ -131,7 +131,7 @@ var _react2 = _interopRequireDefault(_react);
 
 __webpack_require__(114);
 
-var _reactRouter = __webpack_require__(21);
+var _reactRouter = __webpack_require__(27);
 
 var _StudentAdd = __webpack_require__(253);
 
@@ -455,7 +455,7 @@ var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouter = __webpack_require__(21);
+var _reactRouter = __webpack_require__(27);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -559,7 +559,7 @@ var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouter = __webpack_require__(21);
+var _reactRouter = __webpack_require__(27);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -628,7 +628,7 @@ var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouter = __webpack_require__(21);
+var _reactRouter = __webpack_require__(27);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -638,16 +638,16 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Dashboard = function (_React$Component) {
-  _inherits(Dashboard, _React$Component);
+var Login = function (_React$Component) {
+  _inherits(Login, _React$Component);
 
-  function Dashboard() {
-    _classCallCheck(this, Dashboard);
+  function Login() {
+    _classCallCheck(this, Login);
 
-    return _possibleConstructorReturn(this, (Dashboard.__proto__ || Object.getPrototypeOf(Dashboard)).apply(this, arguments));
+    return _possibleConstructorReturn(this, (Login.__proto__ || Object.getPrototypeOf(Login)).apply(this, arguments));
   }
 
-  _createClass(Dashboard, [{
+  _createClass(Login, [{
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
@@ -656,7 +656,16 @@ var Dashboard = function (_React$Component) {
         _react2.default.createElement(
           'h2',
           null,
-          'Issue Tracker Dashboard'
+          'Welcome to Study Buddies!'
+        ),
+        _react2.default.createElement(
+          'form',
+          null,
+          'Name:',
+          _react2.default.createElement('br', null),
+          _react2.default.createElement('input', { type: 'text', name: 'firstname' }),
+          _react2.default.createElement('br', null),
+          _react2.default.createElement('input', { type: 'submit', value: 'Submit' })
         ),
         _react2.default.createElement(
           'ul',
@@ -666,7 +675,7 @@ var Dashboard = function (_React$Component) {
             null,
             _react2.default.createElement(
               _reactRouter.Link,
-              { to: '/issues' },
+              { to: '/students' },
               'Login'
             )
           )
@@ -675,10 +684,10 @@ var Dashboard = function (_React$Component) {
     }
   }]);
 
-  return Dashboard;
+  return Login;
 }(_react2.default.Component);
 
-exports.default = Dashboard;
+exports.default = Login;
 
 /***/ })
 

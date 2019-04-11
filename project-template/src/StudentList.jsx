@@ -11,7 +11,6 @@ const StudentRow = (props) => (
     <td>{props.student.name}</td>
     <td>{props.student.major}</td>
     <td>{props.student.bio}</td>
-    <td>{props.student.courses}</td>
   </tr>
 );
 
@@ -27,7 +26,6 @@ function StudentTable(props) {
           <th>Name</th>
           <th>Major</th>
           <th>Bio</th>
-          <th>Courses</th>
         </tr>
       </thead>
       <tbody>{studentRows}</tbody>

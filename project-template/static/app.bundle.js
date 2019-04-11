@@ -176,11 +176,6 @@ var StudentRow = function StudentRow(props) {
       'td',
       null,
       props.student.bio
-    ),
-    _react2.default.createElement(
-      'td',
-      null,
-      props.student.courses
     )
   );
 };
@@ -217,11 +212,6 @@ function StudentTable(props) {
           'th',
           null,
           'Bio'
-        ),
-        _react2.default.createElement(
-          'th',
-          null,
-          'Courses'
         )
       )
     ),

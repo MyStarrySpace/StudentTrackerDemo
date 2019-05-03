@@ -658,16 +658,12 @@ var Login = function (_React$Component) {
           _react2.default.createElement('input', { type: 'submit', value: 'Submit' })
         ),
         _react2.default.createElement(
-          'ul',
+          'p',
           null,
           _react2.default.createElement(
-            'li',
-            null,
-            _react2.default.createElement(
-              _reactRouter.Link,
-              { to: '/students' },
-              'Login'
-            )
+            _reactRouter.Link,
+            { to: '/students' },
+            'Login'
           )
         )
       );

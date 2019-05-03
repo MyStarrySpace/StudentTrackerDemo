@@ -11,9 +11,7 @@ export default class Login extends React.Component {
             <input type="text" name="firstname"></input><br />
             <input type="submit" value="Submit"></input>
         </form>
-        <ul>
-          <li><Link to="/students">Login</Link></li>
-        </ul>
+        <p><Link to="/students">Login</Link></p>
       </div>
     );
   }
